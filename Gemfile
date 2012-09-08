@@ -3,9 +3,13 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.7'
 
 
-gem 'sqlite3'
+group :production, :staging do
+  gem "pg"
+end
 
-
+group :development, :test do
+  gem "sqlite3", "1.3.6", :require => "sqlite3"
+end
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
